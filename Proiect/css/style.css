@@ -1,0 +1,73 @@
+body{
+    width: 100%;
+    margin: auto;  
+}
+.container{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header{
+  width: 100%;
+  height:100 px;
+  background: red;
+  position: fixed ;
+  top: 0;
+  left: 0;
+}
+
+.logo{
+  float: left;  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+ 
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+  float: left;
+  margin-left: 20px;
+  font-size: 30px;
+  padding-top: 13px;
+}
+
+.nav{
+  float: right;
+}
+ 
+.mouse-cursor-gradient-tracking {
+    position: relative;
+    left: 10px;
+    top: 5px;
+    background: #1d226b;
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    border: none;
+    color: rgb(18, 207, 75);
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+  } 
+
+ .mouse-cursor-gradient-tracking span {
+    position: relative;
+  }
+  .mouse-cursor-gradient-tracking::before {
+    --size: 30;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, rgb(245, 230, 94), transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+  .mouse-cursor-gradient-tracking:hover::before {
+    --size: 200px;
+  }
+ 
