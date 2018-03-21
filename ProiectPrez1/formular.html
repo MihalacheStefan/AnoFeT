@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    height: 700px;
+    padding: 10px;
+   
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body background="./Images/img2.jpg">
+
+
+<div class="row">
+  <div class="column" style="background-image:url(./Images/img1.jpg);">
+ <a style="display:block" href="./form.html">
+    <h2><font color="Orange">Place you've been</font></h2>
+    <p><font color="Orange">Tell us about it!</font></p>
+  </div>
+  <div class="column" style="background-image:url(./Images/products.jpg);">
+  <a style="display:block" href="./form.html">
+    <h2><font color="Black">Product</font></h2>
+    <p><font color="Black">You tried it?</font></p>
+  </div>
+  <div class="column" style="background-image:url(./Images/people.jpg)">
+  <a style="display:block" href="./form.html">    
+  <h2><font color="White">People</font></h2>
+    <p><font color="White">We want to meet them!</font></p>
+  </div>
+  <div class="column" style="background-image:url(./Images/job.png)">
+    <a style="display:block" href="./form.html">
+<h2><font color="Black">Jobs??</font></h2>
+    <p><font color="Black">I need it more than you!!</font></p>
+  </div>
+</div>
+
+</body>
+</html>
