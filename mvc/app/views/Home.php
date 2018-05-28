@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="../../public/css/styleHOME.css">
     </head>
 <body>
-<a style="display:block" href="./index.html">
+<a style="display:block" href="./index.php">
   <div class="split left">
   <div class="centered">
   <img src="../../public/Images/download.png" alt="Anonim">
@@ -14,7 +14,7 @@
 </div>
 </a>
 
-<a style="display:block" href="./login.html">
+<a style="display:block" href="./login.php">
 <div class="split right">
   <div class="centered">
     <img src="../../public/Images/conect.jpg" alt="Avatar man">

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
 
@@ -23,11 +23,11 @@
                 </a>
 
                 <div class="header-right">
-                    <a class="active nav-link nav-link-ltr" href="Home.html">Home</a>
-                    <a class="nav-link nav-link-ltr" href="login.html">Log in</a>
-                    <a class="nav-link nav-link-ltr" href="register.html">Register</a>
-                    <a class="nav-link nav-link-ltr" href="Topic.html">Create a TOPIC</a>
-                    <a class="nav-link nav-link-ltr" href="Stats.html">Stats</a>
+                    <a class="active nav-link nav-link-ltr" href="Home.php">Home</a>
+                    <a class="nav-link nav-link-ltr" href="login.php">Log in</a>
+                    <a class="nav-link nav-link-ltr" href="register.php">Register</a>
+                    <a class="nav-link nav-link-ltr" href="Topic.php">Create a TOPIC</a>
+                    <a class="nav-link nav-link-ltr" href="Stats.php">Stats</a>
                 </div>
 
             </div>
@@ -88,7 +88,7 @@
                         <p class="post-info">This post is made by Popescu</p>
                     </footer>
 
-                    <button onclick="location.href ='./Chestionar.html'" class="fancy-button">
+                    <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
                         Realizeaza recenzie
                     </button>
 
@@ -128,7 +128,7 @@
                         <p class="post-info">This post is made by Popescu</p>
                     </footer>
 
-                    <button onclick="location.href ='./Chestionar.html'" class="fancy-button">
+                    <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
                         Realizeaza recenzie
                     </button>
 
@@ -168,7 +168,7 @@
                         <p class="post-info">This post is made by Popescu</p>
                     </footer>
 
-                    <button onclick="location.href ='./Chestionar.html'" class="fancy-button">
+                    <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
                         Realizeaza recenzie
                     </button>
 
@@ -205,7 +205,7 @@
                         <p class="post-info">This post is made by Popescu</p>
                     </footer>
 
-                    <button onclick="location.href ='./Chestionar.html'" class="fancy-button">
+                    <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
                         Realizeaza recenzie
                     </button>
 
