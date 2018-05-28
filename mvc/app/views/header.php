@@ -23,11 +23,24 @@
                 </a>
 
                 <div class="header-right">
-                    <a class="active nav-link nav-link-ltr" href="index.php">Home</a>
-                    <a class="nav-link nav-link-ltr" href="login.php">Log in</a>
-                    <a class="nav-link nav-link-ltr" href="register.php">Register</a>
-                    <a class="nav-link nav-link-ltr" href="Topic.php">Create a TOPIC</a>
-                    <a class="nav-link nav-link-ltr" href="Stats.php">Stats</a>
+                    <?php
+                         if(isset($_SESSION['user_id'])){
+                                echo '<a class="active nav-link nav-link-ltr" href="index.php">Home</a>
+                                <a class="nav-link nav-link-ltr" href="Topic.php">Create a TOPIC</a>
+                                <a class="nav-link nav-link-ltr" href="Stats.php">Stats</a>
+                                <a class="nav-link nav-link-ltr" href="../controllers/controll_logout.php">Log out</a>';
+                         }else{
+                             echo ' <a class="active nav-link nav-link-ltr" href="index.php">Home</a>
+                             <a class="nav-link nav-link-ltr" href="login.php">Log in</a>
+                             <a class="nav-link nav-link-ltr" href="register.php">Register</a>
+                             <a class="nav-link nav-link-ltr" href="Stats.php">Stats</a>';
+                         }
+
+                    ?>
+                    
+                     
+
+                   
                 </div>
 
             </div>
