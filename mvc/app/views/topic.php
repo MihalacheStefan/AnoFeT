@@ -1,6 +1,11 @@
 <?php
 
    // include_once 'header.php';
+   
+   //if(!isset($_SESSION)){
+   //     header("Location: ./404page.php");
+   //     exit();
+   //}
 ?>
 
 <!DOCTYPE html>

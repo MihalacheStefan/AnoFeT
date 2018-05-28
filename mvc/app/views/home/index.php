@@ -1,1 +1,9 @@
-Hello  <?=$data['name']?>
+<?php
+
+
+/*Hello  <?=$data['name']?>*/
+
+var_dump($_SESSION);
+
+
+?>
