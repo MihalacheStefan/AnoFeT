@@ -12,7 +12,7 @@ function verify($uid , $pwd){
     }
 
     
-    $sql = "SELECT * FROM accounts WHERE username = '$uid';";
+    $sql = "SELECT * FROM accounts WHERE username = '$uid' OR email = '$uid';";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 

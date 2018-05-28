@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
         }else{
             $_SESSION['user_id'] = $loginAnswer['user_id'];
             $_SESSION['username'] = $loginAnswer['username'];
-            $_SESSION['password'] = $loginAnswer['password'];
+            $_SESSION['email'] = $loginAnswer['email'];
             
             header("Location: ../views/login.php?login=succes");// de fapt e home_auth
             exit();
