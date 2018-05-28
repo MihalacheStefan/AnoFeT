@@ -39,10 +39,6 @@ if(isset($_POST['submit'])){
                     header("Location: ../views/register.php?signup=succes");
                     exit();
 
-                    //$sql = "INSERT INTO accounts (username, email, password ) VALUES ('$uid', '$email', '$hashedPwd');";
-                    //mysqli_query($conn , $sql);
-                    
-                    //var_dump(validate($uid));
                 }
             }
         }

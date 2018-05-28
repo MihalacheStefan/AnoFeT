@@ -53,3 +53,39 @@ h2
 	border: none;
 	border-bottom: 1px solid #fff;
 }
+
+.loginBox button{
+	position: relative;
+	width: 100%;
+	border: none;
+	padding: 8px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+	cursor: pointer;
+	margin-bottom: 25px;
+	color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+}
+
+.loginBox button:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	background-color: #3e8e41
+}
+
+.loginBox a
+{
+	position: relative;
+	left: 55px;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	color: #fff;
+	
+	
+}
