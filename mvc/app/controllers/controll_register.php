@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if(isset($_POST['submit'])){
     
     include_once '../models/db_connection.php';
@@ -34,9 +36,13 @@ if(isset($_POST['submit'])){
                 else{
                     $hashedPwd = password_hash($pwd1, PASSWORD_DEFAULT);
 
-                    $ceva = insert($uid , $email , $hashedPwd);
+                    $insertAnswer = insert($uid , $email , $hashedPwd);
 
-                    header("Location: ../views/register.php?signup=succes");
+                    $_SESSION['user_id'] = $insertAnswer['user_id'];
+                    $_SESSION['username'] = $insertAnswer['username'];
+                    $_SESSION['email'] = $insertAnswer['email'];
+
+                    header("Location: ../views/index.php?signup=succes");
                     exit();
 
                 }

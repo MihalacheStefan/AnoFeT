@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
             $_SESSION['username'] = $loginAnswer['username'];
             $_SESSION['email'] = $loginAnswer['email'];
             
-            header("Location: ../views/login.php?login=succes");// de fapt e home_auth
+            header("Location: ../views/index.php?login=succes");// de fapt e home_auth
             exit();
         }
 

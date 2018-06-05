@@ -15,7 +15,16 @@ function insert($uid, $email, $hashedPwd){
     $sql = "INSERT INTO accounts (username, email, password ) VALUES ('$uid', '$email', '$hashedPwd');";
     mysqli_query($conn , $sql);
 
+    $sql = "SELECT * FROM accounts WHERE username = '$uid' ;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
     mysqli_close($conn);
+
+    if($row = mysqli_fetch_assoc($result)){
+        return $row;
+    }
+    
 
     return "ceva";
 }
