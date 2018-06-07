@@ -59,8 +59,8 @@
                                 </select>
 
 
-                                <label for="description">Description</label>
-                                <input type="text" id="description" name="description" placeholder="Enter a description">
+                                <label for="description" >Description</label>
+                                <input type="text" id="description" name="description" placeholder="Enter a description" >
                             </div>
 
                             <button id="addQ" type="create" name="create">Add question</button>

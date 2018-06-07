@@ -1,7 +1,7 @@
 <?php
     session_start();
     include_once 'header.php';
-
+    include_once '../models/db_connection.php';
     
 ?>
 
@@ -34,162 +34,106 @@
                 </article>
 
                 </div>
+
                 <div class="column-right">
+                    <?php   // Get Article
 
-                <article class="article-content">
-                    <header>
-                        <h2>Post tiltle</h2>
-                    </header>
-                    <content>
-                        <p>
-                            Sa se conceapa un instrument Web ce permite utilizatorilor posibilitatea de a oferi feedback pentru un anumit "lucru" (eveniment,
-                            persoana, loc geografic, produs, serviciu, artefact artistic etc.) intr-o maniera anonima. Aplicatia
-                            trebuie sa gestioneze "lucrurile" dorite a fi evaluate si chestionarele specifice fiecaruia (editabile
-                            de catre initiatorul unei solicitari de colectare a feedback-ului). După terminarea perioadei in
-                            care un formular este accesibil persoanelor ce realizeaza recenzii pentru un anumit "lucru", se vor
-                            prezenta statistici de interes referitoare la fiecare categorie de "lucruri" evaluate -- se vor considera
-                            criterii multiple precum grupul de utilizatori, perioada de timp vizand evaluarea, subcategoriile
-                            de "lucruri", caracteristicile considerate pozitive/negative etc. Rapoartele generate vor fi disponibile
-                            in formatele HTML, CSV si JSON, putand fi partajate pe diverse retele sociale. Bonus: alegerea unor
-                            maniere de vizualizare atractiva a datelor.
-                        </p>
-                    </content>
+                        $sql = "select * from objects;";
+                        $result = mysqli_query($conn, $sql);
+                        $resultCheck = mysqli_num_rows($result);
 
-                    <footer>
-                        <p class="post-info">This post is made by Popescu</p>
-                    </footer>
+                        if($resultCheck > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                                echo '<article class="article-content">
+                                     <header><h2>';
+                                    echo  $row['name'];
+                                    echo '</h2></header><content>
+                                    <p>';
+                                    echo 'Type: ';
+                                    echo  $row['type'];
+                                    echo '</p><p>';
+                                    echo  $row['description'];
+                                    echo '</p>
+                                    </content>';
+                                    echo '<footer>
+                                            <p class="post-info">This post is made by ';
 
-                    <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
-                        Realizeaza recenzie
-                    </button>
+                                    //sql username
+                                    $obj_id = $row['object_id'];
+                                    $sql_obj_user = "SELECT * FROM accounts a JOIN object_user ou ON a.user_id = ou.user_id JOIN objects obj ON obj.object_id = ou.object_id 
+                                                    WHERE obj.object_id = '$obj_id';";
+                                    $result_obj_user = mysqli_query($conn, $sql_obj_user);
+                                    $resultCheck_obj_user = mysqli_num_rows($result_obj_user);
 
-                    <h3>Rating</h3>
-                    <div class="rating">
-                        <span class="rating-star" data-value="5"></span>
-                        <span class="rating-star" data-value="4"></span>
-                        <span class="rating-star" data-value="3"></span>
-                        <span class="rating-star" data-value="2"></span>
-                        <span class="rating-star" data-value="1"></span>
-                    </div>
+                                    if($row_obj_user = mysqli_fetch_assoc($result_obj_user)){
+                                            echo $row_obj_user['username'];
+                                    }
+                                    
+                                    // sql time
+                                    
+                                    echo '</p>
+                                        </footer>';
+                                    echo '<button onclick="location.href =';
+                                    echo "'./Chestionar.php'";
+                                    echo '" class="fancy-button">
+                                            Realizeaza recenzie
+                                            </button>';
+                                    echo '<h3>Rating</h3>
+                                            <div class="rating">
+                                                <span class="rating-star" data-value="5"></span>
+                                                <span class="rating-star" data-value="4"></span>
+                                                <span class="rating-star" data-value="3"></span>
+                                                <span class="rating-star" data-value="2"></span>
+                                                <span class="rating-star" data-value="1"></span>
+                                            </div>';
+                                echo '</article>';
 
-                
+                                
+                            }
+                        }
 
-                </article>
 
-                      <article class="article-content">
-                    <header>
-                        <h2>Post tiltle</h2>
-                    </header>
-                    <content>
-                        <p>
-                            Sa se conceapa un instrument Web ce permite utilizatorilor posibilitatea de a oferi feedback pentru un anumit "lucru" (eveniment,
-                            persoana, loc geografic, produs, serviciu, artefact artistic etc.) intr-o maniera anonima. Aplicatia
-                            trebuie sa gestioneze "lucrurile" dorite a fi evaluate si chestionarele specifice fiecaruia (editabile
-                            de catre initiatorul unei solicitari de colectare a feedback-ului). După terminarea perioadei in
-                            care un formular este accesibil persoanelor ce realizeaza recenzii pentru un anumit "lucru", se vor
-                            prezenta statistici de interes referitoare la fiecare categorie de "lucruri" evaluate -- se vor considera
-                            criterii multiple precum grupul de utilizatori, perioada de timp vizand evaluarea, subcategoriile
-                            de "lucruri", caracteristicile considerate pozitive/negative etc. Rapoartele generate vor fi disponibile
-                            in formatele HTML, CSV si JSON, putand fi partajate pe diverse retele sociale. Bonus: alegerea unor
-                            maniere de vizualizare atractiva a datelor.
-                        </p>
-                    </content>
 
-                    <footer>
-                        <p class="post-info">This post is made by Popescu</p>
-                    </footer>
 
-                    <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
-                        Realizeaza recenzie
-                    </button>
+                    ?>  
 
-                    <h3>Rating</h3>
-                     <div class="rating">
-                        <span class="rating-star" data-value="5"></span>
-                        <span class="rating-star" data-value="4"></span>
-                        <span class="rating-star" data-value="3"></span>
-                        <span class="rating-star" data-value="2"></span>
-                        <span class="rating-star" data-value="1"></span>
-                    </div>
+                    <article class="article-content">
+                        <header>
+                            <h2>Post tiltle</h2>
+                        </header>
+                        <content>
+                            <p>
+                                Sa se conceapa un instrument Web ce permite utilizatorilor posibilitatea de a oferi feedback pentru un anumit "lucru" (eveniment,
+                                persoana, loc geografic, produs, serviciu, artefact artistic etc.) intr-o maniera anonima. Aplicatia
+                                trebuie sa gestioneze "lucrurile" dorite a fi evaluate si chestionarele specifice fiecaruia (editabile
+                                de catre initiatorul unei solicitari de colectare a feedback-ului). După terminarea perioadei in
+                                care un formular este accesibil persoanelor ce realizeaza recenzii pentru un anumit "lucru", se vor
+                                prezenta statistici de interes referitoare la fiecare categorie de "lucruri" evaluate -- se vor considera
+                                criterii multiple precum grupul de utilizatori, perioada de timp vizand evaluarea, subcategoriile
+                                de "lucruri", caracteristicile considerate pozitive/negative etc. Rapoartele generate vor fi disponibile
+                                in formatele HTML, CSV si JSON, putand fi partajate pe diverse retele sociale. Bonus: alegerea unor
+                                maniere de vizualizare atractiva a datelor.
+                            </p>
+                        </content>
 
-                </article>
-                
-                      </article>
+                        <footer>
+                            <p class="post-info">This post is made by Popescu</p>
+                        </footer>
 
-                      <article class="article-content">
-                    <header>
-                        <h2>Post tiltle</h2>
-                    </header>
-                    <content>
-                        <p>
-                            Sa se conceapa un instrument Web ce permite utilizatorilor posibilitatea de a oferi feedback pentru un anumit "lucru" (eveniment,
-                            persoana, loc geografic, produs, serviciu, artefact artistic etc.) intr-o maniera anonima. Aplicatia
-                            trebuie sa gestioneze "lucrurile" dorite a fi evaluate si chestionarele specifice fiecaruia (editabile
-                            de catre initiatorul unei solicitari de colectare a feedback-ului). După terminarea perioadei in
-                            care un formular este accesibil persoanelor ce realizeaza recenzii pentru un anumit "lucru", se vor
-                            prezenta statistici de interes referitoare la fiecare categorie de "lucruri" evaluate -- se vor considera
-                            criterii multiple precum grupul de utilizatori, perioada de timp vizand evaluarea, subcategoriile
-                            de "lucruri", caracteristicile considerate pozitive/negative etc. Rapoartele generate vor fi disponibile
-                            in formatele HTML, CSV si JSON, putand fi partajate pe diverse retele sociale. Bonus: alegerea unor
-                            maniere de vizualizare atractiva a datelor.
-                        </p>
-                    </content>
+                        <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
+                            Realizeaza recenzie
+                        </button>
 
-                    <footer>
-                        <p class="post-info">This post is made by Popescu</p>
-                    </footer>
+                        <h3>Rating</h3>
+                        <div class="rating">
+                            <span class="rating-star" data-value="5"></span>
+                            <span class="rating-star" data-value="4"></span>
+                            <span class="rating-star" data-value="3"></span>
+                            <span class="rating-star" data-value="2"></span>
+                            <span class="rating-star" data-value="1"></span>
+                        </div>
 
-                    <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
-                        Realizeaza recenzie
-                    </button>
-
-                    <h3>Rating</h3>
-                   <div class="rating">
-                        <span class="rating-star" data-value="5"></span>
-                        <span class="rating-star" data-value="4"></span>
-                        <span class="rating-star" data-value="3"></span>
-                        <span class="rating-star" data-value="2"></span>
-                        <span class="rating-star" data-value="1"></span>
-                    </div>
-                </article>
-
-                <article class="article-content">
-                    <header>
-                        <h2>Post tiltle</h2>
-                    </header>
-                    <content>
-                        <p>
-                            Sa se conceapa un instrument Web ce permite utilizatorilor posibilitatea de a oferi feedback pentru un anumit "lucru" (eveniment,
-                            persoana, loc geografic, produs, serviciu, artefact artistic etc.) intr-o maniera anonima. Aplicatia
-                            trebuie sa gestioneze "lucrurile" dorite a fi evaluate si chestionarele specifice fiecaruia (editabile
-                            de catre initiatorul unei solicitari de colectare a feedback-ului). După terminarea perioadei in
-                            care un formular este accesibil persoanelor ce realizeaza recenzii pentru un anumit "lucru", se vor
-                            prezenta statistici de interes referitoare la fiecare categorie de "lucruri" evaluate -- se vor considera
-                            criterii multiple precum grupul de utilizatori, perioada de timp vizand evaluarea, subcategoriile
-                            de "lucruri", caracteristicile considerate pozitive/negative etc. Rapoartele generate vor fi disponibile
-                            in formatele HTML, CSV si JSON, putand fi partajate pe diverse retele sociale. Bonus: alegerea unor
-                            maniere de vizualizare atractiva a datelor.
-                        </p>
-                    </content>
-
-                    <footer>
-                        <p class="post-info">This post is made by Popescu</p>
-                    </footer>
-
-                    <button onclick="location.href ='./Chestionar.php'" class="fancy-button">
-                        Realizeaza recenzie
-                    </button>
-
-                    <h3>Rating</h3>
-               <div class="rating">
-                        <span class="rating-star" data-value="5"></span>
-                        <span class="rating-star" data-value="4"></span>
-                        <span class="rating-star" data-value="3"></span>
-                        <span class="rating-star" data-value="2"></span>
-                        <span class="rating-star" data-value="1"></span>
-                    </div>
-
-                </article>
+                    </article>
 
                 </div>
             </div>
