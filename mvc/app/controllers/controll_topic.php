@@ -55,6 +55,9 @@ if(isset($_POST['submit'])){
 
         }
     }
+}else{
+    header("Location: ../views/topic.php?submit=error");
+    exit();
 }
 
 ?>
