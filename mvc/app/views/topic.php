@@ -77,15 +77,13 @@
                                 <label><input type="checkbox" name="remember">Accept Anonymous</label>
                             </div>
                             </div>
-                            -->
-
+                            --> 
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" name="submit">Create</button>
                             </div>
 
                         </form>
                     </div>
-
 
 
                     <h2 class="greeting">COMPLETE</h2>
@@ -99,8 +97,6 @@
         </div>
     </div>
 </body>
-
-
 
 </html>
 

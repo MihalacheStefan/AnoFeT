@@ -5,7 +5,6 @@ session_start();
 if(isset($_POST['submit'])){
     
     include_once '../models/db_connection.php';
-    include_once '../models/username_valid.php';
     include_once '../models/insert_account.php';
 
     $email = mysqli_real_escape_string($conn,$_POST['email']);
