@@ -50,12 +50,12 @@
 
                                 <label for="type">Type</label>
                                 <select id="type" name="type">
-                                    <option value="event">Event</option>
-                                    <option value="person">Person</option>
-                                    <option value="place">Place</option>
-                                    <option value="product">Product</option>
-                                    <option value="service">Service</option>
-                                    <option value="artifact">Artistic artifact</option>
+                                    <option value="Event">Event</option>
+                                    <option value="Person">Person</option>
+                                    <option value="Place">Place</option>
+                                    <option value="Product">Product</option>
+                                    <option value="Service">Service</option>
+                                    <option value="Artistic artifact">Artistic artifact</option>
                                 </select>
 
 

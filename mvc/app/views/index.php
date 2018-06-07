@@ -38,26 +38,26 @@
                 <div class="column-right">
                     <?php   // Get Article
 
-                        $sql = "select * from objects;";
+                        $sql = "SELECT * from objects order by object_id desc;";
                         $result = mysqli_query($conn, $sql);
                         $resultCheck = mysqli_num_rows($result);
 
                         if($resultCheck > 0){
                             while($row = mysqli_fetch_assoc($result)){
-                                echo '<article class="article-content">
-                                     <header><h2>';
+                                    echo '<article class="article-content">
+                                             <header><h2>';
                                     echo  $row['name'];
                                     echo '</h2></header><content>
-                                    <p>';
+                                            <p>';
                                     echo 'Type: ';
                                     echo  $row['type'];
                                     echo '</p><p>';
                                     echo  $row['description'];
                                     echo '</p>
-                                    </content>';
+                                        </content>';
                                     echo '<footer>
                                             <p class="post-info">This post is made by ';
-
+                                            
                                     //sql username
                                     $obj_id = $row['object_id'];
                                     $sql_obj_user = "SELECT * FROM accounts a JOIN object_user ou ON a.user_id = ou.user_id JOIN objects obj ON obj.object_id = ou.object_id 
@@ -70,14 +70,22 @@
                                     }
                                     
                                     // sql time
-                                    
                                     echo '</p>
                                         </footer>';
-                                    echo '<button onclick="location.href =';
+                                    /*echo '<button onclick="location.href =';
                                     echo "'./Chestionar.php'";
                                     echo '" class="fancy-button">
                                             Realizeaza recenzie
                                             </button>';
+                                            */
+
+                                    echo '<form action="./Chestionar.php" method="POST">
+                                            <button class="fancy-button" name="complete" type="complete" value="';
+                                    echo $obj_id;
+                                    echo '"  >
+                                                Realizeaza recenzie
+                                            </button>
+                                        </form>';
                                     echo '<h3>Rating</h3>
                                             <div class="rating">
                                                 <span class="rating-star" data-value="5"></span>
