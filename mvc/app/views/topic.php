@@ -42,7 +42,7 @@
 
                     <div class="infobox">
                         <h2>New Topic</h2>
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" action="../controllers/controll_topic.php" method="POST">
 
                             <div id="form-container">
                                 <label for="objectname">Topic Name</label>
@@ -106,6 +106,7 @@
 
 
 <script >
+    count = 0;
 
     let a = document.getElementById('addQ');
 
@@ -127,10 +128,12 @@
 
         let textarea = document.createElement('textarea');
         textarea.classList = 'question';
+        textarea.setAttribute("id", "question"+count );
+        textarea.setAttribute("name", "question"+count );
         textarea.rows = 7;
-        textarea.placeholder = 'Question..';
+        textarea.placeholder = 'Maximum 255 characters..';
         textarea.style = 'display: block; margin: 10px auto; width: 100%; resize: none;';
-
+        count++;
         container.appendChild(textarea);
     }
 </script>

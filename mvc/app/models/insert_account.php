@@ -25,7 +25,7 @@ function insert($uid, $email, $hashedPwd){
         return $row;
     }
     
-
+    
     return "ceva";
 }
 
