@@ -70,14 +70,9 @@
                                     }
                                     
                                     // sql time
+
                                     echo '</p>
                                         </footer>';
-                                    /*echo '<button onclick="location.href =';
-                                    echo "'./Chestionar.php'";
-                                    echo '" class="fancy-button">
-                                            Realizeaza recenzie
-                                            </button>';
-                                            */
 
                                     echo '<form action="./Chestionar.php" method="POST">
                                             <button class="fancy-button" name="complete" type="complete" value="';

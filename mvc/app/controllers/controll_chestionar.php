@@ -7,6 +7,7 @@ if(isset($_POST['submit'])){
     include_once '../models/db_connection.php';
     include_once '../models/chestionar_model.php';
 
+    $user_id = $_SESSION['user_id'];
     $object_id = $_POST['submit'];
     
     $nrQuestions = nr_questions($object_id);
@@ -25,6 +26,10 @@ if(isset($_POST['submit'])){
             exit();
         }
     }
+    if(verify_user($object_id, $user_id) == false){
+        header("Location: ../views/index.php?feedback=already_made");
+        exit();
+    }
 
     $sql = "SELECT * from questionnaire where object_id = '$object_id' order by question_id asc;";
 	$result = mysqli_query($conn, $sql);
@@ -42,7 +47,7 @@ if(isset($_POST['submit'])){
     }
 
     $opinion = $_POST['opinion'];
-    $insert = insert_opinion($opinion , $object_id);
+    $insert = insert_opinion($opinion , $object_id, $user_id);
 
     header("Location: ../views/index.php?feedback=succes");
     exit();

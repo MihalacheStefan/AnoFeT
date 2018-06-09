@@ -40,7 +40,7 @@ function insert_answer($question_id , $answer){
     return "ceva";
 }
 
-function insert_opinion($opinion , $object_id){
+function verify_user($object_id, $user_id){
     $dbServername = "localhost";
     $dbUsername = "root";
     $dbPassword = "";
@@ -50,7 +50,30 @@ function insert_opinion($opinion , $object_id){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-    $sql = "INSERT INTO opinions (opinion, object_id ) VALUES ('$opinion', '$object_id');";
+    $sql = "SELECT * from opinions where object_id = '$object_id' and user_id = '$user_id';";
+    $result = mysqli_query($conn, $sql);
+
+    mysqli_close($conn);
+
+    if($row = mysqli_fetch_assoc($result)){
+        return false;
+    }
+
+    return true;
+}
+
+
+function insert_opinion($opinion , $object_id ,$user_id){
+    $dbServername = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "";
+    $dbName = "baza_date";
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+    if (mysqli_connect_errno()){
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+
+    $sql = "INSERT INTO opinions (opinion, object_id, user_id) VALUES ('$opinion', '$object_id', '$user_id');";
     $result = mysqli_query($conn, $sql);
 
     mysqli_close($conn);
