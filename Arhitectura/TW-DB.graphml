@@ -143,7 +143,7 @@ Creation_time
 User_ID (int(10))
 Object_grade (int(2))
 Questionnaire_grade (int(2))
-Timeout (int(4))<y:LabelModel>
+Timeout (datetime)<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
             </y:LabelModel>
             <y:ModelParameter>
