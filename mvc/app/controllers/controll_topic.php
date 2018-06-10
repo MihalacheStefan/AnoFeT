@@ -8,11 +8,19 @@ if(isset($_POST['submit'])){
     include_once '../models/insert_object.php';
 
     $count = 0;
-    $name = mysqli_real_escape_string($conn,$_POST['objectname']);
+    $name_1 = mysqli_real_escape_string($conn,$_POST['objectname']);
+    $name_2 = str_replace("<","?",$name_1);
+    $name = str_replace(">","?",$name_2);
     $type = mysqli_real_escape_string($conn,$_POST['type']);
-    $description = mysqli_real_escape_string($conn,$_POST['description']);
+
+    $description_1 = mysqli_real_escape_string($conn,$_POST['description']);
+    $description_2 = str_replace("<","?",$description_1);
+    $description = str_replace(">","?",$description_2);
+
     $time = mysqli_real_escape_string($conn,$_POST['time']);
-    $question = mysqli_real_escape_string($conn,$_POST['question0']);
+    $question_1 = mysqli_real_escape_string($conn,$_POST['question0']);
+    $question_2 = str_replace("<","?",$question_1);
+    $question = str_replace(">","?",$question_2);
 
     
     if(empty($name) ||  empty($type) || empty($description) || empty($time) || empty($question) ){
@@ -46,7 +54,9 @@ if(isset($_POST['submit'])){
             $obj_user = insert_obj_user($object['object_id'], $_SESSION['user_id'], $time );
             // $_SESSION['object_id'] = $object['object_id'];        
             for($i = 0; $i < $count ; $i++){  
-                $question = mysqli_real_escape_string($conn,$_POST['question' . $i]);
+                $question_1 = mysqli_real_escape_string($conn,$_POST['question' . $i]);
+                $question_2 = str_replace("<","?",$question_1);
+                $question = str_replace(">","?",$question_2);
                 $insert_q = insert_question($question, $object['object_id']);
             }
             

@@ -38,7 +38,12 @@ function insert_obj_user($object_id, $user_id, $time){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-    $sql = "INSERT INTO object_user (object_id, user_id, timeout ) VALUES ('$object_id', '$user_id', '$time');";
+    $date_current = date('d/m/Y H:i:s');
+    $date = date_create($date_current);
+    date_modify($date, '+' .$time .' hour');
+    $date_insert = date_format($date, 'Y-m-d H:i:s') ;
+
+    $sql = "INSERT INTO object_user (object_id, user_id, timeout ) VALUES ('$object_id', '$user_id', '$date_insert');";
     mysqli_query($conn , $sql);
 
 

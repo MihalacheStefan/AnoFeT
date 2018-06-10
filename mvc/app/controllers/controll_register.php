@@ -8,7 +8,9 @@ if(isset($_POST['submit'])){
     include_once '../models/insert_account.php';
 
     $email = mysqli_real_escape_string($conn,$_POST['email']);
-    $uid = mysqli_real_escape_string($conn,$_POST['uid']);
+    $uid_1 = mysqli_real_escape_string($conn,$_POST['uid']);
+    $uid_2 = str_replace("<","?",$uid_1);
+    $uid = str_replace(">","?",$uid_2);
     $pwd1 = mysqli_real_escape_string($conn,$_POST['pwd1']);
     $pwd2 = mysqli_real_escape_string($conn,$_POST['pwd2']);
 
@@ -29,7 +31,7 @@ if(isset($_POST['submit'])){
             }
             else{
                 if($pwd1 != $pwd2){
-                    header("Location: ../views/register.php?signup=passwords");
+                    header("Location: ../views/register.php?signup=password");
                     exit();
                 }
                 else{

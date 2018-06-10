@@ -7,7 +7,9 @@ if(isset($_POST['submit'])){
     include_once '../models/db_connection.php';
     include_once '../models/login_model.php';
 
-    $uid = mysqli_real_escape_string($conn,$_POST['uid']);
+    $uid_1 = mysqli_real_escape_string($conn,$_POST['uid']);
+    $uid_2 = str_replace("<","?",$uid_1);
+    $uid = str_replace(">","?",$uid_2);
     $pwd = mysqli_real_escape_string($conn,$_POST['pwd']);
 
     if( empty($uid) || empty($pwd) ){

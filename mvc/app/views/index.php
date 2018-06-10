@@ -6,11 +6,19 @@
 ?>
 
 
-
         <div class="wrapper">
             <div class="row">
                 <div class="column-left">
-                 
+                
+                <article class="article-content">
+                    <h2>Top rated topics</h2>
+                    <ul>
+                        <li><a class="link-hover" href="#">Topic 1</a></li>
+                        <li><a class="link-hover" href="#">Topic 2</a></li>
+                        <li><a class="link-hover" href="#">Topic 3</a></li>
+                    </ul>
+                </article>
+
                 <article class="article-content">
                     <h2>Topics</h2>
                     <ul>
@@ -24,14 +32,6 @@
                     </ul>
                 </article>
 
-                <article class="article-content">
-                    <h2>Top rated topics</h2>
-                    <ul>
-                        <li><a class="link-hover" href="#">Topic 1</a></li>
-                        <li><a class="link-hover" href="#">Topic 2</a></li>
-                        <li><a class="link-hover" href="#">Topic 3</a></li>
-                    </ul>
-                </article>
 
                 </div>
 
