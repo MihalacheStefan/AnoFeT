@@ -2,37 +2,22 @@
 
 function get_username($row){
 
-    $dbServername = "localhost";
-    $dbUsername = "root";
-    $dbPassword = "";
-    $dbName = "baza_date";
-    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-    if (mysqli_connect_errno()){
-
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
-
-    include '../models/get_username.php';
-
-    mysqli_close($conn);
-    return "ceva";
+    include_once '../models/get_objects.php';
+    return get_username_m($row);
+   
 }
 
 function get_time ($row){
 
-    $dbServername = "localhost";
-    $dbUsername = "root";
-    $dbPassword = "";
-    $dbName = "baza_date";
-    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-    if (mysqli_connect_errno()){
+    include_once '../models/get_objects.php';
+    return get_time_m($row);
+}
 
-        echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
+function get_objects ($ceva){
 
-    include '../models/get_time.php';
 
-    mysqli_close($conn);
-    return "ceva";
+    include_once '../models/get_objects.php';
+    
+    return get_objects_m($ceva);
 }
 ?>

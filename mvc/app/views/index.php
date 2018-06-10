@@ -38,11 +38,8 @@
                 <div class="column-right">
                     <?php   // Get Article
 
-                        $sql = "SELECT * from objects order by object_id desc;";
-                        $result = mysqli_query($conn, $sql);
-                        $resultCheck = mysqli_num_rows($result);
+                        $result = get_objects("ceva");
 
-                        if($resultCheck > 0){
                             while($row = mysqli_fetch_assoc($result)){
                                     echo '<article class="article-content">
                                              <header><h2>';
@@ -59,12 +56,12 @@
                                             <p class="post-info">This post is made by ';
                                             
                                     //sql username
-                                    //include '../models/get_username.php';
-                                    $rasp = get_username($row);
+                                    echo get_username($row);
+                                    
                                     echo ' and will expire on ';
                                     // sql time
-                                    //include '../models/get_time.php';
-                                    $rasp = get_time($row);
+                                    echo get_time($row);
+
                                     echo '</p>
                                         </footer>';
 
@@ -87,7 +84,7 @@
 
                                 
                             }
-                        }
+                        
 
 
 
