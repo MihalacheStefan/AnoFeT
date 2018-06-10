@@ -2,47 +2,61 @@
     session_start();
     include_once 'header.php';
     include_once '../models/db_connection.php';
-    
+    include_once '../controllers/controll_get_obj.php';
 ?>
 
 
         <div class="wrapper">
             <div class="row">
                 <div class="column-left">
-                
-                <article class="article-content">
-                    <h2>Top rated topics</h2>
-                    <ul>
-                        <li><a class="link-hover" href="#">Topic 1</a></li>
-                        <li><a class="link-hover" href="#">Topic 2</a></li>
-                        <li><a class="link-hover" href="#">Topic 3</a></li>
-                    </ul>
-                </article>
+                    <article class="article-content">
+                        <h2>Top rated topics</h2>
+                        <ul>
+                            <?php
+                               
+                                $result = get_objects_bygrade("ceva");
+                                if($result != "ceva")
+                                    while($row = mysqli_fetch_assoc($result)){
+                                            echo '<li><a class="link-hover" >';
+                                            echo $row['name'];
+                                            echo '</a></li>';
+                                    }
 
-                <article class="article-content">
-                    <h2>Topics</h2>
-                    <ul>
-                        <li><a class="link-hover" href="#">Topic 1</a></li>
-                        <li><a class="link-hover" href="#">Topic 2</a></li>
-                        <li><a class="link-hover" href="#">Topic 3</a></li>
-                        <li><a class="link-hover" href="#">Topic 4</a></li>
-                        <li><a class="link-hover" href="#">Topic 5</a></li>
-                        <li><a class="link-hover" href="#">Topic 6</a></li>
-                        <li><a class="link-hover" href="#">Topic 7</a></li>
-                    </ul>
-                </article>
+                            ?>
+                        </ul>
+                    </article>
 
+                    <article class="article-content">
+                        <h2>Topics</h2>
+                        <ul>
+                            <?php
+                               
+                                $result = get_objects_withgrade("ceva");
+                                if($result != "ceva")
+                                    while($row = mysqli_fetch_assoc($result)){
+                                            echo '<li><a class="link-hover" >';
+                                            echo $row['name'];
+                                            echo '</a></li>';
+                                    }
+
+                            ?>
+                            <li><a class="link-hover" href="#">Topic 1</a></li>
+                            <li><a class="link-hover" href="#">Topic 2</a></li>
+                            <li><a class="link-hover" href="#">Topic 3</a></li>
+                            <li><a class="link-hover" href="#">Topic 4</a></li>
+                            <li><a class="link-hover" href="#">Topic 5</a></li>
+                            <li><a class="link-hover" href="#">Topic 6</a></li>
+                            <li><a class="link-hover" href="#">Topic 7</a></li>
+                        </ul>
+                    </article>
 
                 </div>
 
                 <div class="column-right">
                     <?php   // Get Article
 
-                        $sql = "SELECT * from objects order by object_id desc;";
-                        $result = mysqli_query($conn, $sql);
-                        $resultCheck = mysqli_num_rows($result);
-
-                        if($resultCheck > 0){
+                        $result = get_objects("ceva");
+                                        
                             while($row = mysqli_fetch_assoc($result)){
                                     echo '<article class="article-content">
                                              <header><h2>';
@@ -59,23 +73,18 @@
                                             <p class="post-info">This post is made by ';
                                             
                                     //sql username
-                                    $obj_id = $row['object_id'];
-                                    $sql_obj_user = "SELECT * FROM accounts a JOIN object_user ou ON a.user_id = ou.user_id JOIN objects obj ON obj.object_id = ou.object_id 
-                                                    WHERE obj.object_id = '$obj_id';";
-                                    $result_obj_user = mysqli_query($conn, $sql_obj_user);
-                                    $resultCheck_obj_user = mysqli_num_rows($result_obj_user);
+                                    echo get_username($row);
 
-                                    if($row_obj_user = mysqli_fetch_assoc($result_obj_user)){
-                                            echo $row_obj_user['username'];
-                                    }
-                                    
+                                    echo ' and will expire on ';
                                     // sql time
+                                    echo get_time($row);
 
                                     echo '</p>
                                         </footer>';
 
                                     echo '<form action="./Chestionar.php" method="POST">
                                             <button class="fancy-button" name="complete" type="complete" value="';
+                                    $obj_id = $row['object_id'];
                                     echo $obj_id;
                                     echo '"  >
                                                 Realizeaza recenzie
@@ -93,9 +102,7 @@
 
                                 
                             }
-                        }
-
-
+                        
 
 
                     ?>  
