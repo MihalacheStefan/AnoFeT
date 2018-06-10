@@ -2,6 +2,8 @@
 
 	include_once 'header.php';
 	include_once '../models/db_connection.php';
+	include_once '../controllers/controll_get_obj.php';
+
 	session_start();
     if(!isset($_SESSION['user_id'])){
         header("Location: ./login.php");
@@ -26,6 +28,8 @@
 	
 	<link rel="stylesheet" type="text/css" href="../../public/css/chestionar.css">
 	<!--<link rel="stylesheet" type="text/css" href="../../public/css/util.css"> -->
+	
+	<script src="../../public/script/ajax.js"></script>
 
 </head>
 <body>
@@ -39,6 +43,8 @@
 						echo '<span class="contact2-form-title">
 								Give us the feedback for **';
 						$object_id = $_POST['complete'];
+						$_SESSION['object'] = $object_id;
+
 						$sql = "SELECT * from objects where object_id = '$object_id';";
 						$result = mysqli_query($conn, $sql);
 						if($row = mysqli_fetch_assoc($result)){
@@ -68,20 +74,9 @@
 						}
 					?>
 
-					<!--
-					<div class="wrap-input2 validate-input" >
-						<input class="input2" type1="text" name="name">
-						<span class="focus-input2" data-placeholder="Good experience with specific parts of the topic(ex. name/name/name etc)"></span>
-					</div>
-
-					<div class="wrap-input2 validate-input" >
-						<textarea class="input2" name="message"></textarea>
-						<span class="focus-input2" data-placeholder="You can use the big words now! Describe it all :D !"></span>
-					</div>
-					-->	
 						
 					<label for="opinion">Your opinion </label>
-                    <select id="opinion" name="opinion">
+                    <select id="opinion" name="opinion" onchange="showGrade(this.value)">
                         <option value="5">Excellent</option>
                         <option value="4">Acceptable</option>
                         <option value="3">So and so</option>
@@ -89,6 +84,18 @@
                         <option value="1">Horribly</option>
                     </select>
 
+					<div id="newGrade"><p>
+						<?php
+							
+							$result = get_current_grade($object_id);
+							if($result == "ceva"){
+								echo "There are no grades for this object yet";
+							}else{
+								echo "The current grade is : " . $result;
+							}
+														
+						?>
+					</p></div>
 
 					<div class="container-contact2-form-btn">
 						<div class="wrap-contact2-form-btn">

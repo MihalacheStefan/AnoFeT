@@ -33,4 +33,17 @@ function get_objects_withgrade($ceva){
     include_once '../models/get_objects.php';
     return get_objects_withgrade_m($ceva);
 }
+
+function get_current_grade($object_id){
+
+    include_once '../models/get_objects.php';
+    return get_current_grade_m($object_id);
+}
+
+function get_new_grade($q, $object_id){
+
+    include_once '../models/get_objects.php';
+    return get_new_grade_m($q, $object_id);
+}
+
 ?>

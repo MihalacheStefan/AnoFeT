@@ -22,7 +22,8 @@
     //echo strtotime("+1 week 2 days 4 hours 2 seconds"), "<br>";
     //echo strtotime("next Thursday"), "<br>";
     //echo strtotime("last Monday"), "<br>";
-
+    session_start();
+    var_dump($_SESSION['user_id']);
 ?>
 
 

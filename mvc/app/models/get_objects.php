@@ -133,4 +133,74 @@ function get_objects_withgrade_m($ceva){
 
 }
 
+function get_current_grade_m($object_id){
+
+    $dbServername = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "";
+    $dbName = "baza_date";
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+    if (mysqli_connect_errno()){
+
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+
+    $sql = "SELECT * from opinions where object_id = '$object_id' ;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    if($resultCheck > 0){
+        $grade = 0;
+        $nr = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            $grade = $grade + $row['opinion'];
+            $nr++;
+        }
+        mysqli_close($conn);
+        $rez = $grade / $nr;
+        return $rez;
+    }
+
+    mysqli_close($conn);
+    return "ceva";
+
+}
+
+function get_new_grade_m($q, $object_id){
+
+    $dbServername = "localhost";
+    $dbUsername = "root";
+    $dbPassword = "";
+    $dbName = "baza_date";
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+    if (mysqli_connect_errno()){
+
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+
+    $sql = "SELECT * from opinions where object_id = '$object_id' ;";
+    $result = mysqli_query($conn, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    if($resultCheck > 0){
+        $grade = 0;
+        $nr = 0;
+        while($row = mysqli_fetch_assoc($result)){
+            $grade = $grade + $row['opinion'];
+            $nr++;
+        }
+        mysqli_close($conn);
+        $grade = $grade + $q;
+        $nr++;
+        $rez = $grade / $nr;
+        return $rez;
+    }else{
+        mysqli_close($conn);
+        return $q;
+    }
+
+    return "ceva";
+
+}
+
 ?>
