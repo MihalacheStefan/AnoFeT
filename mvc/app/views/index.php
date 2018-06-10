@@ -2,7 +2,7 @@
     session_start();
     include_once 'header.php';
     include_once '../models/db_connection.php';
-    
+    include_once '../controllers/controll_get_obj.php';
 ?>
 
 
@@ -59,18 +59,12 @@
                                             <p class="post-info">This post is made by ';
                                             
                                     //sql username
-                                    $obj_id = $row['object_id'];
-                                    $sql_obj_user = "SELECT * FROM accounts a JOIN object_user ou ON a.user_id = ou.user_id JOIN objects obj ON obj.object_id = ou.object_id 
-                                                    WHERE obj.object_id = '$obj_id';";
-                                    $result_obj_user = mysqli_query($conn, $sql_obj_user);
-                                    $resultCheck_obj_user = mysqli_num_rows($result_obj_user);
-
-                                    if($row_obj_user = mysqli_fetch_assoc($result_obj_user)){
-                                            echo $row_obj_user['username'];
-                                    }
-                                    
+                                    //include '../models/get_username.php';
+                                    $rasp = get_username($row);
+                                    echo ' and will expire on ';
                                     // sql time
-
+                                    //include '../models/get_time.php';
+                                    $rasp = get_time($row);
                                     echo '</p>
                                         </footer>';
 

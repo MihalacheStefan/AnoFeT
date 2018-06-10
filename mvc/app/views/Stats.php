@@ -13,13 +13,6 @@
     echo strtotime($date_w), "<br>";
     */
 
-    echo "<br><br><br><br>";
-    $ceva = "<p> ceva ceva </p> altceva <script>";
-    $text = "Sa se conceapa un instrument Web ce permite utilizatorilor posibilitatea de a oferi feedback pentru un anumit (eveniment,
-    persoana, loc geografic, produs, serviciu"; 
-    $ceva1= str_replace("<","?",$ceva);
-    $ceva2= str_replace(">","?",$ceva1);
-    echo $ceva2 , "<br>";
     //echo str_replace("<>","",$text), "<br>";
    // echo $text;
 
