@@ -44,13 +44,7 @@
                                     }
 
                             ?>
-                            <li><a class="link-hover" href="#">Topic 1</a></li>
-                            <li><a class="link-hover" href="#">Topic 2</a></li>
-                            <li><a class="link-hover" href="#">Topic 3</a></li>
-                            <li><a class="link-hover" href="#">Topic 4</a></li>
-                            <li><a class="link-hover" href="#">Topic 5</a></li>
-                            <li><a class="link-hover" href="#">Topic 6</a></li>
-                            <li><a class="link-hover" href="#">Topic 7</a></li>
+                            
                         </ul>
                     </article>
 

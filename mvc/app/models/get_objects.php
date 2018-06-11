@@ -13,7 +13,8 @@ function get_objects_m($ceva){
     }
     
     // ar trebui sa scot obiectele care au deja nota
-    $sql = "SELECT * from objects order by object_id desc;";
+    //$sql = "SELECT * from objects order by object_id desc;";
+    $sql = "SELECT * from objects o join object_user u on o.object_id = u.object_id where u.object_grade is null and u.questionnaire_grade is null order by o.object_id desc;";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 
