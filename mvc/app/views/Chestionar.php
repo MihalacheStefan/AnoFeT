@@ -52,7 +52,7 @@
 						}
 						echo '**!
 							</span>';
-						echo '<p>For a better understanding of your opinion, use words like: placut, da, ok, nu. </p>';
+						echo '<p>For a better understanding of your opinion, use words like: da, nu. </p>';
 						echo '<p id=ultimu>Complete all fields with no more than 255 characters. </p>';
 
 						$count = 1;

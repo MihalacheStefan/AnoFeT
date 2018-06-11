@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://w3c.github.io/scholarly-html/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Documentatie - Scholarly HTML</title>
+    <link rel="stylesheet" href="./Scholarly HTML_files/scholarly.min.css">
+    <script src="./Scholarly HTML_files/scholarly.min.js.download"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <div class="banner">
+        <img src="./Scholarly HTML_files/scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+        <div class="status">Community Draft</div>
+      </div>
+      <h1>Scholarly HTML</h1>
+    </header>
+    
+    <div role="contentinfo"><ol role="directory">
+      
+        </ol>
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          Mihalache Marian-Stefan
+          &amp;
+          Rugina Rares-Teodor
+          &amp;
+          Gradinariu Gabriel
+          &amp;
+          Petcu Vlad-Andrei
+        </dd>
+        <dt>GitHub Repository </dt>
+        <dd>
+          <a href="https://github.com/MihalacheStefan/AnoFeT">AnoFeT</a>
+        </dd>
+        
+      </dl>
+    </div>
+    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+      <h2>Abstract</h2>
+      <p>
+        AnoFeT (prescurtarea de la Anonymous Feedback Tool) este un instrument Web ce permite utilizatorilor posibilitatea de a oferi feedback pentru un anumit "lucru" intr-o maniera anonima. 
+      </p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introduction</h2>
+      <p>
+        Documentatia doreste sa prezinte o problema contemporana, oferirea unui feedback legat de 
+        un anumit "lucru", deoarece aceste feedback-urile influenteaza foarte mult luare deciziilor 
+        de catre indivizi. Utilizatorii instrumentului Web vor putea creea un anumit Topic, specific
+        preferintelor lor, vor putea oferi feedback altor lucruri si vor putea consultat Topul si 
+        Statistica tuturor lucrurilor.
+      </p>
+      
+    </section>
+    <section id="structure">
+      <!-- review? -->
+      <h2>Structure</h2>
+      <p>
+        Din punct de vedere al structurii, am ales sa folosim design pattern-ul MVC, un model arhitectural 
+        ce imparte aplicatia in trei parti interconectate. Cele trei parti sunt Model-ul responsabil cu 
+        comunicarea dintre aplicatie si baza de date, View-ul responsabil cu afisarea informatiilor catre client 
+        si Controller-ul responsabil cu logica aplicatiei si cu asigurarea comunicarii dintre Model si 
+        View.
+      </p>
+      <p>
+          Structura folosita nu foloseste API-uri externe, informatiile fiind stocate si prelucrate in cadrul 
+          bazei de date si al serverului. 
+      </p>
+      <img src="./Scholarly HTML_files/MasterDiagram.png" width="727" height="650">
+      <p>
+        Baza de date este formata din 6 tabele : accounts, object_user, objects, opinions, questionnaire, answers
+         ce au rolul de a gestiona datele introduse de catre client dupa cum urmeaza.
+      </p> 
+      <img src="./Scholarly HTML_files/bazadate.png" width="927" height="650">
+      
+      </section>
+    <section id="semantics">
+      <!-- review? -->
+      <h2>Semantics Overlay</h2>
+      <p>
+        Din punct de vedere al limbajelor utilizate, instrumentul Web utilizeaza comenzi de tip PHP dar si script-uri, HTML, si CSS.
+      </p>
+      <section id="person-org">
+        <!-- review? -->
+        <h3>Persons &amp; Organizations</h3>
+       <p>
+          Organizarea in cadrul echipei s-a realizat in baza prezentarilor efectuate. Astfel sarcinile au fost distribuite in 
+          functie de Componenta Front-end, Componenta Arhitecturala si Componenta Finala.
+       </p>
+      
+       <p>
+          Conponenta Front-end a presupus elaborarea UI-ului, prin scrierea de cod HTML si CSS specifice paginilor ce vor fi ulterior modelate in View.
+       </p>
+       <p>
+          Conponenta Arhitecturala a presupus elaborarea design-ului arhitectural al instrumentului Web (Design Patterns, 
+          Diagrama de clase, Diagrama Master, Structura bazei de date, Usecase-uri).
+       </p>
+       <p>
+          Conponenta Finala a presupus implementarea efectiva a instrumentului Web, limbajul principal fiind PHP.
+       </p>
+       <p>
+          Pentru mai multe detalii referitoare la dezvoltarea proiectului si la contributia fiecarui membru al echipei,
+          recomandam consultarea paginii de GitHub aferenta proiectului.
+       </p>
+      </section>
+      
+      
+      <section id="details">
+        <!-- review? -->
+        <h3>Implementing Details</h3>
+        <p>
+          Baza de date aleasa este MySql, codul fiind scris in concordanta cu design pattern-ul ales;
+          astfel codul aferent bazei de date a fost inserat in fisierele din cadrul Modelului, in functii 
+          denumite corespunzator. Fiecare functie creeaza o conexiune cu baza de date, executa interogarea sql
+          dupa care inchide conexiunea si returneaza rezultatul interogarii. Spre exemplu functia insert_obj_user
+          ce primeste ca parametrii Id-ul obiectului, Id-ul user-ului si numarul de ore active ale chestionarului,
+          care creeaza o conexiune cu baza de date, pregateste datele ce vor fi inserate si executa query-ul SQL.
+        </p>
+        <img src="./Scholarly HTML_files/insertObjUser.png" width="927" height="650">
+        <p>
+            Apoi, la nivelul fisierelor din Controller, exista atat fisiere cu functii care doar ofera comunicarea 
+            dintre Model si View, dar si functii ce sunt responsabile de logica aplicatiei si validarea datelor.
+          </p>
+          <img src="./Scholarly HTML_files/controll1.png" width="427" height="650">
+          <img src="./Scholarly HTML_files/controll2.png" width="667" height="650">
+          <p>
+              La nivelul fisierelor din View, acestea sunt compuse in principal din cod PHP si HTML, avand rolul de
+               a oferi informatia clientului.
+          </p>
+          <img src="./Scholarly HTML_files/view1.png" width="667" height="650">
+        
+      </section>
+    </section>
+    
+  
+
+<section id="biblio-references">
+  <h2>References</h2>
+  <dl>
+    <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://www.w3schools.com/">
+    <cite property="schema:name">
+      <a href="https://www.w3schools.com/">
+        W3schools
+      </a></cite>
+    </dd>
+
+    <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://stackoverflow.com/">
+      <cite property="schema:name">
+        <a href="https://stackoverflow.com/">
+          Stackoverflow
+        </a></cite>
+      </dd>
+    <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://www.youtube.com/watch?v=xb8aad4MRx8">
+        <cite property="schema:name">
+          <a href="https://www.youtube.com/watch?v=xb8aad4MRx8">
+            mmtuts
+          </a></cite>
+    </dd>
+    <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="http://php.net/">
+      <cite property="schema:name">
+        <a href="http://php.net/">
+          PHP.net
+        </a></cite>
+    </dd>
+    <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://iampava.com/tw/">
+    <cite property="schema:name">
+      <a href="https://iampava.com/tw/">
+        IamPava
+      </a></cite>
+    </dd>
+    <dd property="schema:citation" typeof="schema:ScholarlyArticle" resource="https://profs.info.uaic.ro/~busaco/teach/courses/web/index.html">
+      <cite property="schema:name">
+        <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/index.html">
+          Sabin-Corneliu Buraga
+        </a></cite>
+    </dd>
+  
+  </dl>
+</section>
+</body>
+</html>
