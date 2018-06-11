@@ -7,10 +7,10 @@ function creare_nota($ceva){
                     //pentru fiecare obiect vad daca a trecut timpul
                     $result = get_object_users("ceva");
                     while($row = mysqli_fetch_assoc($result)){
-                        $date_current = date('d/m/Y H:i:s');
-                        $object_time = $row['timeout'];
+                        //$date_current = date('d/m/Y H:i:s');
+                        //$object_time = $row['timeout'];
 
-                        if(strtotime($date_current) >= strtotime($object_time)){
+                        //if(strtotime($date_current) > strtotime($object_time)){
                             //creez nota
                             $object_id = $row['object_id'];
                             $object_grade = create_object_grade($object_id);
@@ -18,9 +18,8 @@ function creare_nota($ceva){
 
                             // modific tabela
                             $upp = update_grade($object_grade, $questionnaire_grade, $object_id);
-                        }
+                        //}
                     }
-
 
     return "ceva";
 }

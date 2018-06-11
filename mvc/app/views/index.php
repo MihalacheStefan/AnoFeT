@@ -88,6 +88,7 @@
                                                 Realizeaza recenzie
                                             </button>
                                         </form>';
+                                        /*
                                     echo '<h3>Rating</h3>
                                             <div class="rating">
                                                 <span class="rating-star" data-value="5"></span>
@@ -96,6 +97,7 @@
                                                 <span class="rating-star" data-value="2"></span>
                                                 <span class="rating-star" data-value="1"></span>
                                             </div>';
+                                            */
                                 echo '</article>';
 
                                 
@@ -132,6 +134,7 @@
                             Realizeaza recenzie
                         </button>
 
+                        <!--
                         <h3>Rating</h3>
                         <div class="rating">
                             <span class="rating-star" data-value="5"></span>
@@ -140,6 +143,7 @@
                             <span class="rating-star" data-value="2"></span>
                             <span class="rating-star" data-value="1"></span>
                         </div>
+                        -->
 
                     </article>
 

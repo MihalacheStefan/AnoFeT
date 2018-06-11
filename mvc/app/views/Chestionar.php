@@ -73,8 +73,7 @@
 							}
 						}
 					?>
-
-						
+	
 					<label for="opinion">Your opinion </label>
                     <select id="opinion" name="opinion" onchange="showGrade(this.value)">
                         <option value="5">Excellent</option>
@@ -82,8 +81,18 @@
                         <option value="3">So and so</option>
                         <option value="2">Not really good</option>
                         <option value="1">Horribly</option>
-                    </select>
-
+					</select>
+					
+					<!--
+					<label for="opinion">Your opinion </label>
+                        <div class="rating" id="opinion" name="opinion" onclick="showGrade(this.value)">
+                            <span class="rating-star" value="5"></span>
+                            <span class="rating-star" value="4"></span>
+                            <span class="rating-star" value="3"></span>
+                            <span class="rating-star" value="2"></span>
+                            <span class="rating-star" value="1"></span>
+                        </div>
+					-->
 					<div id="newGrade"><p>
 						<?php
 							

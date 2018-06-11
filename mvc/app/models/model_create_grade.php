@@ -12,7 +12,7 @@ function get_object_users($ceva){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
     
-    $sql = "SELECT * from object_user where object_grade is null and questionnaire_grade is null;";
+    $sql = "SELECT * from object_user where object_grade is null and questionnaire_grade is null and timeout < SYSDATE();";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 
