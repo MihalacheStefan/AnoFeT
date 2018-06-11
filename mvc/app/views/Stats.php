@@ -23,7 +23,50 @@
     //echo strtotime("next Thursday"), "<br>";
     //echo strtotime("last Monday"), "<br>";
     session_start();
-    var_dump($_SESSION['user_id']);
+/*
+    include_once '../models/model_create_grade.php';
+
+       
+            
+                //pentru fiecare obiect vad daca a trecut timpul
+                $result = get_object_users("ceva");
+                while($row = mysqli_fetch_assoc($result)){
+                    $date_current = date('Y-m-d H:i:s');
+                    $object_time = $row['timeout'];
+
+                    if(strtotime($date_current) >= strtotime($object_time)){
+                        //creez nota
+                        $object_id = $row['object_id'];
+                        $object_grade = create_object_grade($object_id);
+                        $questionnaire_grade = create_questionnaire_grade($object_id);
+                        
+                        
+                        // modific tabela
+                        // $upp = update_grade($object_grade, $questionnaire_grade, $object_id);
+                        
+                    }
+                   
+                }
+
+                //$sleep = mt_rand(5, 10);
+                //sleep($sleep);
+*/
+            echo '<br><br><br><br><br><br>';
+
+            $date_current = date('Y-m-d H:i:s');
+            $date = date_create($date_current);
+            $time = -48;
+            date_modify($date, '+' .$time .' hour');
+            $date_insert = date_format($date, 'Y-m-d H:i:s') ;
+
+            echo strtotime($date_insert) . "<br>" . strtotime($date_current);
+
+/*
+            //$questionnaire_grade = create_questionnaire_grade("4");
+            //echo $questionnaire_grade;
+
+            //$upp = update_grade("10", "10", "1");
+        
 ?>
 
 

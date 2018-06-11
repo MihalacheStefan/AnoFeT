@@ -3,6 +3,10 @@
     include_once 'header.php';
     include_once '../models/db_connection.php';
     include_once '../controllers/controll_get_obj.php';
+    include_once '../controllers/controll_create_grade.php';
+
+    $rez = creare_nota("ceva");
+
 ?>
 
 
