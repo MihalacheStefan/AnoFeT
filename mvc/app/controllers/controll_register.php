@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
     }
 
 } else{
-    header("Location: ../views/register.php");
+    header("Location: ../views/register.php?error");
     exit();
 }
 
