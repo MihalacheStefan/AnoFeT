@@ -106,7 +106,7 @@
 
 
                     ?>  
-
+                    <!--
                     <article class="article-content">
                         <header>
                             <h2>Post tiltle</h2>
@@ -134,7 +134,7 @@
                             Realizeaza recenzie
                         </button>
 
-                        <!--
+                        
                         <h3>Rating</h3>
                         <div class="rating">
                             <span class="rating-star" data-value="5"></span>
@@ -143,9 +143,9 @@
                             <span class="rating-star" data-value="2"></span>
                             <span class="rating-star" data-value="1"></span>
                         </div>
-                        -->
+                        
 
-                    </article>
+                    </article> -->
 
                 </div>
             </div>
