@@ -3,7 +3,7 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Scholarly HTML</title>
+    <title>Ghid de Utilizare - Scholarly HTML</title>
     <link rel="stylesheet" href="./Scholarly HTML_files/scholarly.min.css">
     <script src="./Scholarly HTML_files/scholarly.min.js.download"></script>
   </head>
@@ -13,7 +13,7 @@
         <img src="./Scholarly HTML_files/scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
         <div class="status">Community Draft</div>
       </div>
-      <h1>Scholarly HTML</h1>
+      <h1>Ghid de utilizare</h1>
     </header>
     
     <div role="contentinfo"><ol role="directory">
@@ -55,84 +55,66 @@
       </p>
       
     </section>
-    <section id="structure">
+    
+    <section id="functionalitati">
       <!-- review? -->
-      <h2>Structure</h2>
+      <h2>Functionalitati generale</h2>
       <p>
-        Din punct de vedere al structurii, am ales sa folosim design pattern-ul MVC, un model arhitectural 
-        ce imparte aplicatia in trei parti interconectate. Cele trei parti sunt Model-ul responsabil cu 
-        comunicarea dintre aplicatie si baza de date, View-ul responsabil cu afisarea informatiilor catre client 
-        si Controller-ul responsabil cu logica aplicatiei si cu asigurarea comunicarii dintre Model si 
-        View.
+        Functionalitatile intrumentului Web sunt: login, register, creare chestionar, oferire feedback, vizualizare statistici.
       </p>
-      <p>
-          Structura folosita nu foloseste API-uri externe, informatiile fiind stocate si prelucrate in cadrul 
-          bazei de date si al serverului. 
-      </p>
-      <img src="./Scholarly HTML_files/MasterDiagram.png" width="727" height="650">
-      <p>
-        Baza de date este formata din 6 tabele : accounts, object_user, objects, opinions, questionnaire, answers
-         ce au rolul de a gestiona datele introduse de catre client dupa cum urmeaza.
-      </p> 
-      <img src="./Scholarly HTML_files/bazadate.png" width="927" height="650">
-      
-      </section>
-    <section id="semantics">
-      <!-- review? -->
-      <h2>Semantics Overlay</h2>
-      <p>
-        Din punct de vedere al limbajelor utilizate, instrumentul Web utilizeaza comenzi de tip PHP dar si script-uri, HTML, si CSS.
-      </p>
-      <section id="person-org">
+      <section id="login">
         <!-- review? -->
-        <h3>Persons &amp; Organizations</h3>
+        <h3>Login &amp; Register</h3>
        <p>
-          Organizarea in cadrul echipei s-a realizat in baza prezentarilor efectuate. Astfel sarcinile au fost distribuite in 
-          functie de Componenta Front-end, Componenta Arhitecturala si Componenta Finala.
+          Pentru a accesa pagina de login sau register, trebuie sa fiti in cadrul paginii Home sau index. Dupa ce ati ajuns pe pagina login,
+           completati campurile username si password dupa care Submit. Mai jos aveti un scenariu de logare.
        </p>
-      
-       <p>
-          Conponenta Front-end a presupus elaborarea UI-ului, prin scrierea de cod HTML si CSS specifice paginilor ce vor fi ulterior modelate in View.
-       </p>
-       <p>
-          Conponenta Arhitecturala a presupus elaborarea design-ului arhitectural al instrumentului Web (Design Patterns, 
-          Diagrama de clase, Diagrama Master, Structura bazei de date, Usecase-uri).
-       </p>
-       <p>
-          Conponenta Finala a presupus implementarea efectiva a instrumentului Web, limbajul principal fiind PHP.
-       </p>
-       <p>
-          Pentru mai multe detalii referitoare la dezvoltarea proiectului si la contributia fiecarui membru al echipei,
-          recomandam consultarea paginii de GitHub aferenta proiectului.
-       </p>
+       <img src="./Scholarly HTML_files/Usecase-logare.png" width="867" height="500">
+       
       </section>
-      
-      
-      <section id="details">
+
+      <section id="topic">
         <!-- review? -->
-        <h3>Implementing Details</h3>
-        <p>
-          Baza de date aleasa este MySql, codul fiind scris in concordanta cu design pattern-ul ales;
-          astfel codul aferent bazei de date a fost inserat in fisierele din cadrul Modelului, in functii 
-          denumite corespunzator. Fiecare functie creeaza o conexiune cu baza de date, executa interogarea sql
-          dupa care inchide conexiunea si returneaza rezultatul interogarii. Spre exemplu functia insert_obj_user
-          ce primeste ca parametrii Id-ul obiectului, Id-ul user-ului si numarul de ore active ale chestionarului,
-          care creeaza o conexiune cu baza de date, pregateste datele ce vor fi inserate si executa query-ul SQL.
-        </p>
-        <img src="./Scholarly HTML_files/insertObjUser.png" width="927" height="650">
-        <p>
-            Apoi, la nivelul fisierelor din Controller, exista atat fisiere cu functii care doar ofera comunicarea 
-            dintre Model si View, dar si functii ce sunt responsabile de logica aplicatiei si validarea datelor.
-          </p>
-          <img src="./Scholarly HTML_files/controll1.png" width="427" height="650">
-          <img src="./Scholarly HTML_files/controll2.png" width="667" height="650">
-          <p>
-              La nivelul fisierelor din View, acestea sunt compuse in principal din cod PHP si HTML, avand rolul de
-               a oferi informatia clientului.
-          </p>
-          <img src="./Scholarly HTML_files/view1.png" width="667" height="650">
-        
+        <h3>Creare chestionar</h3>
+       <p>
+          Pentru a crea un chestionar trebuie sa fiti logat.
+       </p>
+       <p>
+            Odata logat, va trebuie sa accesati pagina Topic.php din cadrul header-ului prin apasarea butonului "Create a Topic".
+            Ajuns pe pagina Topic.php va trebui sa completati campurile respective si sa adaugati ce intrebari le considerati
+             dumneavoastra relevante pentru obiectul dorit a fi creat. Mai jos aveti un scenariu corespunzator crearii unui chestionar.
+       </p>
+       <img src="./Scholarly HTML_files/Topic.png" width="1067" height="350">
+       
       </section>
+
+      <section id="chestionar">
+        <!-- review? -->
+        <h3>Oferire feedback</h3>
+       <p>
+          Pentru a oferi un feedback trebuie sa fiti logat.
+       </p>
+       <p>
+            Pentru a oferi unui obiect feedback, trebuie sa accesati pagina Chestionar.php. Aici, va trebui sa completati toate intrebarile,
+             cu raspunsuri cat mai clare (deoarece modul in care raspundeti influenteaza analiza chestionarului) si sa oferiti o nota obiectului vizat.
+       </p>
+       <img src="./Scholarly HTML_files/Chestionar.png" width="1067" height="350">
+       
+      </section>
+      
+      <section id="stats">
+        <!-- review? -->
+        <h3>Vizualizare Statistici</h3>
+       <p>
+          Vizualizarea statisticilor, poate fi realizata in doua moduri, primul (un mod mai abstract al analizei) o presupune coloana din stanga a paginii
+          index.php unde puteti observa topul obiectelor in functie de notele primite.
+       </p>
+       <p>
+            O a doua metoda o reprezinta accesarea paginii Stats, unde puteti consulta Topul fiecarei categorii de lucruri.
+       </p>
+       <img src="./Scholarly HTML_files/Header.png" width="1067" height="350">
+      </section>
+
     </section>
     
   
