@@ -1,58 +1,6 @@
 <?php
 
-    // include_once 'header.php';
-    /*$date_c = date('d/m/Y H:i:s');
-    $date = date_create($date_c);
-    $ore = 1;
-    date_modify($date, '+' .$ore .' hour');
-    $date_w = date_format($date, 'Y-m-d H:i:s') ;
-    echo $date_w , "<br>";
-
-    echo strtotime("now"), "<br>";
-    echo strtotime($date_c), "<br>";
-    echo strtotime($date_w), "<br>";
-    */
-
-    //echo str_replace("<>","",$text), "<br>";
-   // echo $text;
-
-    //echo strtotime("10 September 2000"), "<br>";
-    //echo strtotime("+1 day"), "<br>";
-    //echo strtotime("+1 week"), "<br>";
-    //echo strtotime("+1 week 2 days 4 hours 2 seconds"), "<br>";
-    //echo strtotime("next Thursday"), "<br>";
-    //echo strtotime("last Monday"), "<br>";
-    session_start();
 /*
-    include_once '../models/model_create_grade.php';
-
-       
-            
-                //pentru fiecare obiect vad daca a trecut timpul
-                $result = get_object_users("ceva");
-                while($row = mysqli_fetch_assoc($result)){
-                    $date_current = date('Y-m-d H:i:s');
-                    $object_time = $row['timeout'];
-
-                    if(strtotime($date_current) >= strtotime($object_time)){
-                        //creez nota
-                        $object_id = $row['object_id'];
-                        $object_grade = create_object_grade($object_id);
-                        $questionnaire_grade = create_questionnaire_grade($object_id);
-                        
-                        
-                        // modific tabela
-                        // $upp = update_grade($object_grade, $questionnaire_grade, $object_id);
-                        
-                    }
-                   
-                }
-
-                //$sleep = mt_rand(5, 10);
-                //sleep($sleep);
-*/
-            echo '<br><br><br><br><br><br>';
-
             $date_current = date('Y-m-d H:i:s');
             $date = date_create($date_current);
             $time = -48;
@@ -60,16 +8,155 @@
             $date_insert = date_format($date, 'Y-m-d H:i:s') ;
 
             echo strtotime($date_insert) . "<br>" . strtotime($date_current);
-
-/*
-            //$questionnaire_grade = create_questionnaire_grade("4");
-            //echo $questionnaire_grade;
-
-            //$upp = update_grade("10", "10", "1");
-        
+            */
+            include_once '../controllers/controll_stats.php';
 ?>
 
+<!DOCTYPE html>
+<html>
+    <head>
+            
+            <link rel="stylesheet" href="../../public/css/stylestats.css" />
 
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+            <title>AnoFet: The anonymous feedbacker</title>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="./script/script2.js"></script>
+
+    </head>
+
+    <body>
+
+        <div class="header">
+            <div class="header-content"> 
+
+                <a href="#default" class="logo">
+                    <img src="../../public/Images/anofet.png" alt="logo">
+                </a>
+
+                <div class="header-right">
+                    <a class="active nav-link nav-link-ltr" href="">Statistics for this category:</a>
+                    <a class="nav-link nav-link-ltr" href="">HTML</a>
+                    <a class="nav-link nav-link-ltr" href="">JSON</a>
+                    <a class="nav-link nav-link-ltr" href="">CSV</a>
+                    <a class="nav-link nav-link-ltr" href="index.php">GO back HOME!</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="wrapper">
+            <div class="row">
+                <div class="column-left">
+                 
+                <article class="article-content">
+                    <h2>Last ratings:</h2>
+                    <ul>
+                        <li><a class="link-hover" href="#">r1</a></li>
+                        <li><a class="link-hover" href="#">r2</a></li>
+                        <li><a class="link-hover" href="#">r3</a></li>
+                        <li><a class="link-hover" href="#">r4</a></li>
+                        <li><a class="link-hover" href="#">r5</a></li>
+                     
+                    </ul>
+                </article>
+
+                <article class="article-content">
+                    <h2>Category topics</h2>
+                    <ul>
+                        <li><a class="link-hover" href="#">Topic 1</a></li>
+                        <li><a class="link-hover" href="#">Topic 2</a></li>
+                        <li><a class="link-hover" href="#">Topic 3</a></li>
+                    </ul>
+                </article>
+
+                </div>
+                <div class="column-right">
+                    <?php
+                            $rezultat =  get_types("ceva");
+                            //while($row = mysqli_fetch_assoc($result)){
+
+
+                           // }
+
+                    ?>
+                    <article class="article-content">
+                        <header>
+                            <h2>Category grade</h2>
+                        </header>
+                        <content>
+                            <p>
+                            NOTA!
+                            </p>
+                        </content>
+                        <footer>
+                            <p class="post-info">Incepand de la data introducerii topicului.</p>
+                        </footer>
+
+                        <h3>Rating total pana acum:</h3>
+                        <div class="rating">
+                            <span class="rating-star" data-value="5"></span>
+                            <span class="rating-star" data-value="4"></span>
+                            <span class="rating-star" data-value="3"></span>
+                            <span class="rating-star" data-value="2"></span>
+                            <span class="rating-star" data-value="1"></span>
+                        </div>
+                    </article>
+
+                    <article class="article-content">
+                    <header>
+                        <h2>Number of users:</h2>
+                    </header>
+                    <content>
+                        <p>
+                            NUMAR!
+                        </p>
+                    </content>
+
+                    </article>
+            
+
+                      <article class="article-content">
+                    <header>
+                        <h2>Time elapsed with this review</h2>
+                    </header>
+                    <content>
+                        <p>
+                            TIMP!
+                        </p>
+                    </content>
+
+                </article>
+                <article class="article-content">
+                    <header>
+                        <h2>Subcategories</h2>
+                    </header>
+                    <content>
+                        <p>
+                           -
+-
+-
+-
+
+                        </p>
+                    </content>
+
+                
+
+                </div>
+            </div>
+        </div>
+
+    
+    <a href="#top" class="back-to-top">
+        <p>Back to Top</p>
+    </a>
+
+</body>
+
+</html>
 <!--
 <!DOCTYPE html>
 <html lang="en">
@@ -91,20 +178,12 @@
                 <div class="menu-icon header__item">
                 <span class="menu-icon__line"></span>
                 </div>
-
                 <h1 class="heading header__item">STATISTICS</h1>
-
-
-
 
                 </header>
 
 
                 <div class="ellipse-container">
-
-
-
-
 
                 <h2 class="greeting">TOPICSTAT</h2>
                 <div class="ellipse ellipse__outer--thin">
@@ -120,7 +199,6 @@
                 <h8 class="heading header__item">''</h8>
                 <h4 class="heading header__item">Time elapsed: *** </h4>
 
-
                 </div>
                 </div>
             </div>
@@ -128,6 +206,4 @@
     </body>
 
 </html>
-
-
 -->
